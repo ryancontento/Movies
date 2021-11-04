@@ -25,12 +25,13 @@ function showMovies(movies) {
 
   movies.forEach((movie) => {
     const { title, poster_path, vote_average, overview } = movie;
+    const movieImage = poster_path ?  IMG_PATH + poster_path : './no-image-placeholder.png'
 
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
 
     movieEl.innerHTML = `
-              <img src="${IMG_PATH + poster_path}" alt="${title}">
+              <img src="${movieImage}" alt="${title}">
               <div class="movie-info">
             <h3>${title}</h3>
             <span class="${getClassByRate(vote_average)}">${vote_average}</span>
